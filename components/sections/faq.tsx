@@ -8,29 +8,34 @@ import { cn } from '@/lib/utils'
 
 const FAQS = [
   {
-    category: 'Ciencia',
-    q: '¿Qué hace Immunocal que otros suplementos no hacen?',
-    a: 'Immunocal no es glutatión, es su precursor patentado a nivel mundial. El glutatión tomado directo se digiere antes de llegar a donde se necesita; Immunocal entrega la cisteína enlazada para que tus propias células lo produzcan. Pruebas clínicas revisadas por pares confirman un aumento del 35%.',
+    category: 'Acompañamiento',
+    q: '¿Cómo es el proceso si escribo por WhatsApp?',
+    a: 'Primero te pregunto por tu rutina, tu energía, tus hábitos y lo que te gustaría mejorar. Con eso puedo orientarte con calma y decirte si alguna alternativa de Immunotec tiene sentido para ti.',
+  },
+  {
+    category: 'Bienestar',
+    q: '¿Tengo que estar enferma para empezar?',
+    a: 'No. Muchas personas llegan porque quieren cuidarse antes, tener más energía, mejorar hábitos o sentirse más fuertes en su día a día. La idea es prevenir, acompañar y tomar mejores decisiones.',
+  },
+  {
+    category: 'Producto',
+    q: '¿Qué es Immunocal?',
+    a: 'Es un suplemento de Immunotec que apoya la producción natural de glutatión, un antioxidante que tu propio cuerpo fabrica. Juliana te lo explica en palabras simples y te ayuda a entender si encaja contigo.',
   },
   {
     category: 'Tiempo',
-    q: '¿Cuándo empiezo a notar los efectos?',
-    a: 'Las primeras señales — mejor sueño y energía más estable — suelen aparecer entre las semanas 2 y 4. La mejora en defensas y recuperación se consolida entre el mes 2 y 3. Por eso hago seguimiento personal a cada persona que acompaño, para ajustar la dosis según la respuesta de tu cuerpo.',
+    q: '¿Cuándo podría notar cambios?',
+    a: 'Cada cuerpo responde distinto. Algunas personas notan señales en pocas semanas, como energía más estable o mejor descanso. Lo importante es hacer seguimiento y observar tu proceso con paciencia.',
   },
   {
     category: 'Salud',
-    q: '¿Puedo tomarlo con medicamentos o si tengo una enfermedad?',
-    a: 'En la mayoría de los casos sí, es un suplemento alimenticio, no un medicamento. Personas con trasplante de órganos o en tratamiento con inmunosupresores deben consultar primero a su médico. Tengo acceso a la ficha técnica completa y a los estudios clínicos para compartir con tu médico.',
-  },
-  {
-    category: 'Productos',
-    q: '¿Cuál es la diferencia entre Classic y Platinum?',
-    a: 'Classic es la fórmula original, con todos los precursores de glutatión. Platinum agrega CMP y RMF para apoyar densidad ósea y resistencia muscular — ideal para mayores de 50, deportistas o quienes viven con alto estrés. Te ayudo a elegir el tuyo según tu objetivo.',
+    q: '¿Puedo tomarlo si uso medicamentos?',
+    a: 'Si tienes una condición médica, estás embarazada, lactando o tomas medicamentos, lo responsable es consultar con tu médico. Juliana puede compartirte información para que la revises con tranquilidad.',
   },
   {
     category: 'Compra',
-    q: '¿Cómo compro y a qué precio?',
-    a: 'Te recomiendo escribirme primero por WhatsApp: te cuento tu mejor opción según tu objetivo y, si quieres, también cómo funciona la suscripción mensual con descuento. Si ya sabes lo que necesitas, también puedes comprar directo en el sitio oficial de Immunotec.',
+    q: '¿Tengo que comprar de inmediato?',
+    a: 'No. Puedes escribir solo para resolver dudas. Si decides empezar, Juliana te guía para comprar por canales oficiales y saber cómo usarlo.',
   },
 ]
 
@@ -41,13 +46,12 @@ export function Faq() {
   return (
     <section id="faq" className="relative overflow-hidden py-24 sm:py-32">
       <div className="relative mx-auto max-w-3xl px-6 sm:px-10">
-
         <div ref={header} className="mb-12 text-center">
           <p className="mb-3 text-xs font-semibold uppercase tracking-[0.22em] text-primary">
             Preguntas frecuentes
           </p>
           <h2 className="font-heading text-3xl font-extrabold tracking-tight text-foreground sm:text-4xl">
-            Lo que la gente pregunta<br />antes de empezar
+            Dudas normales antes de empezar.
           </h2>
         </div>
 
@@ -93,14 +97,12 @@ export function Faq() {
         </div>
 
         <div className="mt-10 flex flex-col items-center gap-3 text-center">
-          <p className="text-sm text-muted-foreground">
-            ¿Tu duda no está aquí? Te respondo en minutos.
-          </p>
+          <p className="text-sm text-muted-foreground">¿Tu duda no está aquí? Te respondo personalmente.</p>
           <a
             href={CONTACT.whatsappGeneral}
             target="_blank"
             rel="noreferrer"
-            className="inline-flex items-center gap-2 rounded-xl bg-primary/8 border border-primary/20 px-6 py-3 text-sm font-semibold text-primary transition-all hover:bg-primary hover:text-white hover:border-primary"
+            className="inline-flex items-center gap-2 rounded-xl border border-primary/20 bg-primary/8 px-6 py-3 text-sm font-semibold text-primary transition-all hover:border-primary hover:bg-primary hover:text-white"
           >
             <MessageCircle className="size-4" />
             Hacer mi pregunta

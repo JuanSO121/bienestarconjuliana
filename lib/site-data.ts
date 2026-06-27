@@ -1,7 +1,9 @@
-// Central place for contact + social links so they're easy to update.
+export const BRAND = {
+  name: 'Bienestar con Juliana',
+  tagline: 'Hábitos, energía y bienestar real',
+  legal: 'Distribuidora independiente de Immunotec',
+}
 
-// ⚠️ Confirmar: tu archivo anterior tenía 573026668123. Usando aquí el número
-// que confirmaste por chat (+57 318 5102087). Avísame si el correcto es el otro.
 export const WHATSAPP_NUMBER = '573185102087'
 
 export function waLink(text: string) {
@@ -10,12 +12,10 @@ export function waLink(text: string) {
 
 export const CONTACT = {
   whatsappGeneral: waLink(
-    'Hola Juliana, quiero más información sobre Immunocal e Immunotec.',
+    'Hola Juliana, quiero contarte cómo me he sentido y saber por dónde podría empezar.',
   ),
   instagram: 'https://www.instagram.com/bienestarconjuliana/',
   facebook: 'https://www.facebook.com/profile.php?id=61590846119909',
-  // ⚠️ Aún no me has dado una cuenta de TikTok real.
-  // Dejo vacío para que no quede un link muerto — ver nota en el chat.
   tiktok: '',
   immunotecOfficial: 'https://www.immunotec.com/es-CO/juocamu/products',
   immunotecEnrollment: 'https://www.immunotec.com/es-CO/juocamu/enrollment/packs',
@@ -28,7 +28,6 @@ export type Product = {
   badge?: string
   accent: 'blue' | 'platinum' | 'green' | 'coffee'
   benefits: string[]
-  image: string
   cta: string
   waText: string
 }
@@ -36,67 +35,63 @@ export type Product = {
 export const PRODUCTS: Product[] = [
   {
     id: 'regular',
-    name: 'Immunocal®',
-    tagline: 'El original — Caja Azul',
+    name: 'Immunocal',
+    tagline: 'Para empezar con intención',
     accent: 'blue',
     benefits: [
-      'Apoya el sistema inmunológico',
-      'Aumenta el glutatión un 35%',
-      'Protección antioxidante diaria',
-      'Aislado de proteína de suero no desnaturalizada',
+      'Apoya tus defensas día a día',
+      'Ayuda a producir glutatión',
+      'Ideal para una rutina simple',
+      'Buen punto de partida si buscas energía',
     ],
-    image: '/products/immunocal-regular.png',
-    cta: 'Preguntar por Immunocal',
+    cta: 'Preguntar si va conmigo',
     waText:
-      'Hola Juliana, me interesa el Immunocal (caja azul). ¿Puedes darme más información?',
+      'Hola Juliana, vi Immunocal y quiero saber si puede ir conmigo según lo que estoy buscando.',
   },
   {
     id: 'platinum',
-    name: 'Immunocal® Platinum',
-    tagline: 'Fórmula avanzada',
-    badge: 'Más vendido',
+    name: 'Immunocal Platinum',
+    tagline: 'Un paso más profundo',
+    badge: 'Muy consultado',
     accent: 'platinum',
     benefits: [
-      'Todo lo del original, más',
-      'Apoya la resistencia muscular',
-      'Cuida huesos y equilibrio ácido-base',
-      'Ideal para mayores de 50 y deportistas',
+      'Pensado para objetivos más exigentes',
+      'Apoya fuerza y recuperación',
+      'Interesa mucho después de los 50',
+      'Conviene revisarlo según tu rutina',
     ],
-    image: '/products/immunocal-platinum.png',
-    cta: 'Preguntar por Platinum',
+    cta: 'Preguntar si va conmigo',
     waText:
-      'Hola Juliana, me interesa el Immunocal Platinum. ¿Puedes darme más información?',
+      'Hola Juliana, vi Immunocal Platinum y quiero saber si tiene sentido para mi edad y mi rutina.',
   },
   {
     id: 'optimizer',
     name: 'Optimizer Rojos y Verdes',
-    tagline: 'Superalimento diario',
+    tagline: 'Nutrición fácil de sostener',
     accent: 'green',
     benefits: [
       'Más de 50 frutas y verduras',
-      'Rico en fitonutrientes',
-      'Complementa tu ingesta nutricional',
-      'Fácil de tomar cada día',
+      'Complementa tu alimentación diaria',
+      'Práctico para días ocupados',
+      'Acompaña una rutina de bienestar',
     ],
-    image: '/products/immunocal-optimizer.png',
-    cta: 'Preguntar por Optimizer',
+    cta: 'Preguntar si va conmigo',
     waText:
-      'Hola Juliana, me interesa el Optimizer Rojos y Verdes. ¿Puedes darme más información?',
+      'Hola Juliana, vi Optimizer Rojos y Verdes y quiero saber si encaja con mi rutina.',
   },
   {
     id: 'cafe',
     name: 'Immunotec Café',
-    tagline: 'Tu café de cada día',
-    badge: '100% Colombiano',
+    tagline: 'Tu ritual diario con propósito',
+    badge: '100% colombiano',
     accent: 'coffee',
     benefits: [
       'Café soluble colombiano',
-      'Parte de tu rutina de bienestar',
-      'Desarrollado por Immunotec',
+      'Se integra a tu mañana',
+      'Un hábito simple y agradable',
     ],
-    image: '/products/immunotec-cafe.png',
-    cta: 'Preguntar por el Café',
+    cta: 'Preguntar si va conmigo',
     waText:
-      'Hola Juliana, me interesa el Immunotec Café. ¿Puedes darme más información?',
+      'Hola Juliana, vi Immunotec Café y quiero saber cómo podría integrarlo a mi rutina.',
   },
 ]

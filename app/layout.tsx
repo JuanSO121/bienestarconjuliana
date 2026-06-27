@@ -1,8 +1,8 @@
 import { Analytics } from '@vercel/analytics/next'
 import type { Metadata } from 'next'
 import { Inter, Poppins } from 'next/font/google'
-import './globals.css'
 import { ThemeProvider } from '@/components/theme-provider'
+import './globals.css'
 
 const inter = Inter({
   variable: '--font-inter',
@@ -16,31 +16,31 @@ const poppins = Poppins({
 })
 
 export const metadata: Metadata = {
-  title: 'Immunocal Colombia | Juliana — Consultora Oficial Immunotec',
+  title: 'Bienestar con Juliana | Hábitos, energía y acompañamiento',
   description:
-    'Distribuidora oficial de Immunocal e Immunotec en Colombia. Optimiza tu sistema inmune con productos avalados clínicamente. Asesoría personalizada con Juliana.',
-  generator: 'v0.app',
+    'Inspiración, educación y acompañamiento cercano para mejorar tu bienestar, descubrir hábitos saludables y conocer alternativas Immunotec con Juliana.',
   keywords: [
+    'Bienestar con Juliana',
+    'bienestar',
+    'hábitos saludables',
+    'energía',
     'Immunocal',
     'Immunotec',
     'Colombia',
-    'sistema inmune',
     'glutatión',
-    'bienestar',
-    'Juliana consultora',
   ],
   openGraph: {
-    title: 'Immunocal Colombia | Consultora Oficial Immunotec',
+    title: 'Bienestar con Juliana',
     description:
-      'Salud, energía y bienestar real con Immunocal. Asesoría personalizada con Juliana, consultora oficial de Immunotec en Colombia.',
+      'Hábitos, energía y bienestar real con acompañamiento cercano de Juliana.',
     type: 'website',
   },
 }
 
 export const viewport = {
   themeColor: [
-    { media: '(prefers-color-scheme: light)', color: '#1a2a8f' },
-    { media: '(prefers-color-scheme: dark)', color: '#0e1638' },
+    { media: '(prefers-color-scheme: light)', color: '#f5faf8' },
+    { media: '(prefers-color-scheme: dark)', color: '#172535' },
   ],
 }
 

@@ -1,17 +1,17 @@
 'use client'
 
-import { useState, useEffect } from 'react'
-import { Menu, X, MessageCircle, Moon, Sun } from 'lucide-react'
-import { CONTACT } from '@/lib/site-data'
+import { useEffect, useState } from 'react'
+import { Menu, MessageCircle, Moon, Sun, X } from 'lucide-react'
+import { BRAND, CONTACT } from '@/lib/site-data'
 import { cn } from '@/lib/utils'
 
 const NAV_LINKS = [
-  { label: 'Inicio',        href: 'inicio' },
-  { label: 'Productos',     href: 'productos' },
-  { label: 'Beneficios',    href: 'beneficios' },
-  { label: 'Testimonios',   href: 'testimonios' },
-  { label: 'Juliana',       href: 'consultora' },
-  { label: 'FAQ',           href: 'faq' },
+  { label: 'Inicio', href: 'inicio' },
+  { label: 'Sobre mí', href: 'consultora' },
+  { label: 'Beneficios', href: 'beneficios' },
+  { label: 'Historias', href: 'testimonios' },
+  { label: 'Opciones', href: 'productos' },
+  { label: 'Preguntas', href: 'faq' },
 ]
 
 const NAV_HEIGHT = 64
@@ -24,10 +24,10 @@ function scrollToSection(id: string) {
 }
 
 export function Navbar() {
-  const [open,     setOpen]     = useState(false)
+  const [open, setOpen] = useState(false)
   const [scrolled, setScrolled] = useState(false)
-  const [active,   setActive]   = useState('inicio')
-  const [dark,     setDark]     = useState(false)
+  const [active, setActive] = useState('inicio')
+  const [dark, setDark] = useState(false)
 
   useEffect(() => {
     const saved = localStorage.getItem('theme')
@@ -38,7 +38,7 @@ export function Navbar() {
   }, [])
 
   useEffect(() => {
-    const ids = NAV_LINKS.map(l => l.href)
+    const ids = NAV_LINKS.map((l) => l.href)
     const onScroll = () => {
       setScrolled(window.scrollY > 12)
       let current = 'inicio'
@@ -66,33 +66,29 @@ export function Navbar() {
         className={cn(
           'fixed inset-x-0 top-0 z-50 transition-all duration-300',
           scrolled
-            ? 'bg-background/95 backdrop-blur-md shadow-sm shadow-black/[0.04] border-b border-border'
+            ? 'border-b border-border bg-background/95 shadow-sm shadow-black/[0.04] backdrop-blur-md'
             : 'bg-transparent',
         )}
       >
         <nav className="mx-auto flex h-16 max-w-7xl items-center justify-between px-5 sm:px-8 lg:px-10">
-
-          {/* ── Logo — wordmark limpio, sin icono shield genérico ─────────── */}
           <button
             onClick={() => scrollToSection('inicio')}
             className="flex items-center gap-3 focus:outline-none"
             aria-label="Ir al inicio"
           >
-            {/* Monograma I — minimalista */}
-            <div className="flex size-8 items-center justify-center rounded-lg bg-primary">
-              <span className="font-heading text-sm font-extrabold text-white tracking-tight">Ic</span>
+            <div className="flex size-8 items-center justify-center rounded-lg bg-foreground text-background">
+              <span className="font-heading text-sm font-extrabold tracking-tight">BJ</span>
             </div>
             <div className="leading-none text-left">
               <span className="block font-heading text-[14px] font-extrabold tracking-tight text-foreground">
-                Immunocal
+                {BRAND.name}
               </span>
               <span className="block text-[9px] font-medium uppercase tracking-[0.18em] text-muted-foreground">
-                por Juliana · Colombia
+                Bienestar personal
               </span>
             </div>
           </button>
 
-          {/* ── Desktop nav — indicador tipo línea inferior ────────────────── */}
           <ul className="hidden items-center lg:flex">
             {NAV_LINKS.map((l) => (
               <li key={l.href} className="relative">
@@ -106,33 +102,26 @@ export function Navbar() {
                   )}
                 >
                   {l.label}
-                  {/* Línea indicadora */}
                   <span
                     className={cn(
-                      'absolute bottom-0 left-4 right-4 h-[2px] rounded-full bg-primary transition-all duration-300',
-                      active === l.href ? 'opacity-100 scale-x-100' : 'opacity-0 scale-x-0',
+                      'absolute bottom-0 left-4 right-4 h-[2px] origin-left rounded-full bg-primary transition-all duration-300',
+                      active === l.href ? 'scale-x-100 opacity-100' : 'scale-x-0 opacity-0',
                     )}
-                    style={{ transformOrigin: 'left' }}
                   />
                 </button>
               </li>
             ))}
           </ul>
 
-          {/* ── Controles derecha ─────────────────────────────────────────── */}
           <div className="flex items-center gap-1.5">
-            {/* Toggle dark */}
             <button
               onClick={toggleDark}
               aria-label={dark ? 'Activar modo claro' : 'Activar modo oscuro'}
               className="flex size-9 items-center justify-center rounded-lg text-foreground/50 transition-colors hover:bg-secondary hover:text-foreground"
             >
-              {dark
-                ? <Sun className="size-4" />
-                : <Moon className="size-4" />}
+              {dark ? <Sun className="size-4" /> : <Moon className="size-4" />}
             </button>
 
-            {/* CTA WhatsApp — solo desktop */}
             <a
               href={CONTACT.whatsappGeneral}
               target="_blank"
@@ -140,10 +129,9 @@ export function Navbar() {
               className="hidden items-center gap-2 rounded-lg bg-primary px-4 py-2 text-sm font-semibold text-white shadow-md shadow-primary/20 transition-all hover:scale-[1.02] hover:shadow-lg lg:inline-flex"
             >
               <MessageCircle className="size-3.5" />
-              Contactar
+              Escríbeme
             </a>
 
-            {/* Hamburger */}
             <button
               onClick={() => setOpen(!open)}
               aria-label={open ? 'Cerrar menú' : 'Abrir menú'}
@@ -154,7 +142,6 @@ export function Navbar() {
           </div>
         </nav>
 
-        {/* ── Mobile menu — slide down ────────────────────────────────────── */}
         <div
           className={cn(
             'overflow-hidden transition-all duration-300 ease-in-out lg:hidden',
@@ -166,18 +153,17 @@ export function Navbar() {
               {NAV_LINKS.map((l) => (
                 <li key={l.href}>
                   <button
-                    onClick={() => { scrollToSection(l.href); setOpen(false) }}
+                    onClick={() => {
+                      scrollToSection(l.href)
+                      setOpen(false)
+                    }}
                     className={cn(
-                      'flex w-full items-center justify-between py-3.5 text-sm font-medium transition-colors border-b border-border/50 last:border-0',
-                      active === l.href
-                        ? 'text-primary font-semibold'
-                        : 'text-foreground/70',
+                      'flex w-full items-center justify-between border-b border-border/50 py-3.5 text-sm font-medium transition-colors last:border-0',
+                      active === l.href ? 'font-semibold text-primary' : 'text-foreground/70',
                     )}
                   >
                     {l.label}
-                    {active === l.href && (
-                      <span className="size-1.5 rounded-full bg-primary" />
-                    )}
+                    {active === l.href && <span className="size-1.5 rounded-full bg-primary" />}
                   </button>
                 </li>
               ))}
@@ -189,13 +175,12 @@ export function Navbar() {
               className="mt-4 flex items-center justify-center gap-2 rounded-xl bg-primary py-3.5 text-sm font-bold text-white shadow-md shadow-primary/20"
             >
               <MessageCircle className="size-4" />
-              Hablar con Juliana
+              Escribirle a Juliana
             </a>
           </div>
         </div>
       </header>
 
-      {/* Spacer */}
       <div className="h-16" aria-hidden />
     </>
   )

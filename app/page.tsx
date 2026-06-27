@@ -1,12 +1,13 @@
-import { Navbar }       from '@/components/navbar'
-import { Hero }          from '@/components/sections/hero'
-import { TrustStrip }    from '@/components/sections/trust-strip'
-import { Products }      from '@/components/sections/products'
-import { Testimonials }  from '@/components/sections/testimonials'
-import { Consultant }    from '@/components/sections/consultant'
-import { Faq }            from '@/components/sections/faq'
-import { ContactCta }    from '@/components/sections/contact-cta'
-import { Footer }        from '@/components/sections/footer'
+import { Navbar } from '@/components/navbar'
+import { Hero } from '@/components/sections/hero'
+import { Consultant } from '@/components/sections/consultant'
+import { TrustStrip } from '@/components/sections/trust-strip'
+import { Benefits } from '@/components/sections/benefits'
+import { Testimonials } from '@/components/sections/testimonials'
+import { Products } from '@/components/sections/products'
+import { Faq } from '@/components/sections/faq'
+import { ContactCta } from '@/components/sections/contact-cta'
+import { Footer } from '@/components/sections/footer'
 import { WhatsappFloat } from '@/components/whatsapp-float'
 
 export default function Page() {
@@ -15,10 +16,11 @@ export default function Page() {
       <Navbar />
       <main>
         <Hero />
-        <TrustStrip />
-        <Products />
-        <Testimonials />
         <Consultant />
+        <TrustStrip />
+        <Benefits />
+        <Testimonials />
+        <Products />
         <Faq />
         <ContactCta />
       </main>

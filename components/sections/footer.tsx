@@ -1,5 +1,5 @@
-import { CONTACT } from '@/lib/site-data'
 import { FacebookIcon, InstagramIcon } from '@/components/brand-icons'
+import { BRAND, CONTACT } from '@/lib/site-data'
 
 export function Footer() {
   return (
@@ -8,23 +8,15 @@ export function Footer() {
         <div className="flex flex-col items-center justify-between gap-8 md:flex-row md:items-start">
           <div className="max-w-sm text-center md:text-left">
             <div className="flex items-center justify-center gap-2.5 md:justify-start">
-              <span className="flex size-9 items-center justify-center rounded-xl bg-primary text-primary-foreground">
-                <svg viewBox="0 0 24 24" fill="none" className="size-5" aria-hidden>
-                  <path
-                    d="M12 2.5c-1.6 2.2-4 3-6.5 3.2.2 6.4 2.6 11 6.5 13.8 3.9-2.8 6.3-7.4 6.5-13.8C16 5.5 13.6 4.7 12 2.5Z"
-                    stroke="currentColor"
-                    strokeWidth="1.8"
-                    strokeLinejoin="round"
-                  />
-                </svg>
+              <span className="flex size-9 items-center justify-center rounded-xl bg-foreground text-background">
+                <span className="font-heading text-sm font-extrabold">BJ</span>
               </span>
-              <span className="font-heading text-base font-extrabold text-foreground">
-                Immunocal Colombia
-              </span>
+              <span className="font-heading text-base font-extrabold text-foreground">{BRAND.name}</span>
             </div>
             <p className="mt-4 text-sm leading-relaxed text-muted-foreground">
-              Juliana — Consultora Oficial de Immunotec. Bienestar real,
-              asesoría cercana y productos originales en toda Colombia.
+              Ideas, hábitos y acompañamiento para sentirte mejor cada día, con
+              cercanía y productos Immunotec originales cuando tienen sentido
+              para tu proceso.
             </p>
           </div>
 
@@ -33,9 +25,9 @@ export function Footer() {
               Navegación
             </span>
             {[
-              { label: 'Productos', href: '#productos' },
+              { label: 'Sobre mí', href: '#consultora' },
               { label: 'Beneficios', href: '#beneficios' },
-              { label: 'Sobre Juliana', href: '#consultora' },
+              { label: 'Opciones', href: '#productos' },
               { label: 'Contacto', href: '#contacto' },
             ].map((l) => (
               <a
@@ -77,12 +69,10 @@ export function Footer() {
 
         <div className="mt-10 flex flex-col items-center justify-between gap-3 border-t border-border pt-6 text-center sm:flex-row sm:text-left">
           <p className="text-xs text-muted-foreground">
-            © {new Date().getFullYear()} Immunocal Colombia. Distribuidora
-            independiente de Immunotec.
+            © {new Date().getFullYear()} {BRAND.name}. {BRAND.legal}.
           </p>
           <p className="text-xs text-muted-foreground">
-            Estos productos no sustituyen una alimentación balanceada ni un
-            tratamiento médico.
+            Los suplementos no sustituyen una alimentación balanceada ni un tratamiento médico.
           </p>
         </div>
       </div>
