@@ -46,14 +46,14 @@ export function TrustStrip() {
   const header = useReveal<HTMLDivElement>()
 
   return (
-    <section className="relative overflow-hidden bg-card py-16 sm:py-20">
+    <section className="relative overflow-hidden border-y border-border bg-card py-16 sm:py-20">
       <div className="relative mx-auto max-w-7xl px-6 sm:px-10">
         <div ref={header} className="mb-10 grid gap-5 lg:grid-cols-[0.9fr_1.1fr] lg:items-end">
           <div>
-            <p className="mb-3 text-xs font-semibold uppercase tracking-[0.22em] text-primary">
+            <p className="mb-3 font-mono text-xs uppercase tracking-[0.18em] text-olive">
               Confianza sin ruido
             </p>
-            <h2 className="font-heading text-2xl font-extrabold tracking-tight text-foreground sm:text-4xl">
+            <h2 className="font-heading text-2xl font-medium tracking-tight text-foreground sm:text-4xl">
               Cercanía para escucharte. Respaldo para decidir.
             </h2>
           </div>
@@ -90,10 +90,10 @@ function CredentialCard({
 
   return (
     <div ref={ref} className="rounded-2xl border border-border bg-background p-4 sm:p-5">
-      <span className="inline-flex size-10 items-center justify-center rounded-xl bg-primary/10 text-primary">
+      <span className="inline-flex size-10 items-center justify-center rounded-xl bg-olive/10 text-olive">
         <Icon className="size-5" />
       </span>
-      <p className="mt-4 font-heading text-xl font-extrabold text-foreground">{value}</p>
+      <p className="mt-4 font-heading text-xl font-semibold text-foreground">{value}</p>
       <p className="text-xs font-semibold text-foreground/80">{label}</p>
       <p className="mt-1 text-[11px] leading-snug text-muted-foreground">{sub}</p>
     </div>

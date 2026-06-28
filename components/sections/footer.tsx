@@ -1,17 +1,21 @@
 import { FacebookIcon, InstagramIcon } from '@/components/brand-icons'
+
 import { BRAND, CONTACT } from '@/lib/site-data'
+import { BotanicalSprig } from '../botanical'
 
 export function Footer() {
   return (
-    <footer className="border-t border-border bg-card">
-      <div className="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8">
+    <footer className="relative overflow-hidden border-t border-border bg-card">
+      <BotanicalSprig className="pointer-events-none absolute -bottom-4 -left-6 h-16 w-48 opacity-60" />
+
+      <div className="relative mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8">
         <div className="flex flex-col items-center justify-between gap-8 md:flex-row md:items-start">
           <div className="max-w-sm text-center md:text-left">
             <div className="flex items-center justify-center gap-2.5 md:justify-start">
-              <span className="flex size-9 items-center justify-center rounded-xl bg-foreground text-background">
-                <span className="font-heading text-sm font-extrabold">BJ</span>
+              <span className="flex size-9 items-center justify-center rounded-xl bg-primary text-primary-foreground">
+                <span className="font-heading text-sm font-semibold">BJ</span>
               </span>
-              <span className="font-heading text-base font-extrabold text-foreground">{BRAND.name}</span>
+              <span className="font-heading text-base font-semibold text-foreground">{BRAND.name}</span>
             </div>
             <p className="mt-4 text-sm leading-relaxed text-muted-foreground">
               Ideas, hábitos y acompañamiento para sentirte mejor cada día, con
@@ -21,7 +25,7 @@ export function Footer() {
           </div>
 
           <nav className="flex flex-col items-center gap-3 md:items-start">
-            <span className="text-xs font-semibold uppercase tracking-[0.18em] text-muted-foreground">
+            <span className="font-mono text-[11px] uppercase tracking-[0.16em] text-muted-foreground">
               Navegación
             </span>
             {[
@@ -41,7 +45,7 @@ export function Footer() {
           </nav>
 
           <div className="flex flex-col items-center gap-3 md:items-start">
-            <span className="text-xs font-semibold uppercase tracking-[0.18em] text-muted-foreground">
+            <span className="font-mono text-[11px] uppercase tracking-[0.16em] text-muted-foreground">
               Síguenos
             </span>
             <div className="flex gap-2">

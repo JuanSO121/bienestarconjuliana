@@ -2,6 +2,7 @@
 
 import { BatteryCharging, Leaf, ShieldCheck, Sparkles } from 'lucide-react'
 import { useReveal } from '@/hooks/use-reveal'
+import { BotanicalBranch } from '@/components/botanical'
 
 const BENEFITS = [
   {
@@ -34,31 +35,18 @@ export function Benefits() {
   const header = useReveal<HTMLDivElement>()
 
   return (
-    <section id="beneficios" className="relative overflow-hidden py-24 sm:py-32">
-      <svg
-        className="pointer-events-none absolute inset-0 h-full w-full"
-        viewBox="0 0 1440 700"
-        preserveAspectRatio="xMidYMid slice"
-        aria-hidden
-      >
-        <path
-          d="M-80 80C60 20 220 60 260 200C300 340 200 460 80 460C-40 460-140 360-120 220Z"
-          fill="#3aa87e"
-          fillOpacity="0.07"
-        />
-        <path
-          d="M1320 60C1420 30 1500 120 1480 240C1460 360 1360 420 1260 390C1160 360 1140 260 1200 160Z"
-          fill="#2d5fd4"
-          fillOpacity="0.06"
-        />
-      </svg>
+    <section id="beneficios" className="relative overflow-hidden bg-secondary/40 py-24 sm:py-32">
+      <BotanicalBranch
+        flip
+        className="pointer-events-none absolute -left-10 top-0 hidden h-[640px] w-auto opacity-70 sm:block lg:left-2"
+      />
 
       <div className="relative mx-auto max-w-7xl px-6 sm:px-10">
         <div ref={header} className="mb-16 max-w-2xl">
-          <p className="mb-4 text-xs font-semibold uppercase tracking-[0.22em] text-primary">
+          <p className="mb-4 font-mono text-xs uppercase tracking-[0.18em] text-primary">
             Bienestar que se siente cercano
           </p>
-          <h2 className="font-heading text-3xl font-extrabold tracking-tight text-foreground sm:text-5xl">
+          <h2 className="font-heading text-3xl font-medium tracking-tight text-foreground sm:text-5xl">
             No se trata de cambiarlo todo. Se trata de empezar mejor.
           </h2>
           <p className="mt-5 text-sm leading-relaxed text-muted-foreground">
@@ -92,13 +80,13 @@ function BenefitCard({
 }) {
   const ref = useReveal<HTMLDivElement>({ delay })
   return (
-    <div ref={ref} className="group relative bg-background p-8 transition-colors duration-300 hover:bg-primary/[0.03]">
-      <span className="inline-flex size-11 items-center justify-center rounded-xl bg-primary/10 text-primary transition-all duration-300 group-hover:bg-primary group-hover:text-white group-hover:shadow-lg group-hover:shadow-primary/20">
+    <div ref={ref} className="group relative bg-card p-8 transition-colors duration-300 hover:bg-primary/[0.04]">
+      <span className="inline-flex size-11 items-center justify-center rounded-xl bg-primary/10 text-primary transition-all duration-300 group-hover:bg-primary group-hover:text-primary-foreground group-hover:shadow-lg group-hover:shadow-primary/20">
         <Icon className="size-5" />
       </span>
-      <h3 className="mt-6 font-heading text-base font-bold text-foreground">{title}</h3>
+      <h3 className="mt-6 font-heading text-base font-semibold text-foreground">{title}</h3>
       <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{desc}</p>
-      <p className="mt-4 text-xs font-medium leading-relaxed text-primary/75">{note}</p>
+      <p className="mt-4 text-xs font-medium leading-relaxed text-primary/80">{note}</p>
     </div>
   )
 }

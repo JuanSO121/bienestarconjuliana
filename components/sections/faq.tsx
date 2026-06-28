@@ -47,10 +47,10 @@ export function Faq() {
     <section id="faq" className="relative overflow-hidden py-24 sm:py-32">
       <div className="relative mx-auto max-w-3xl px-6 sm:px-10">
         <div ref={header} className="mb-12 text-center">
-          <p className="mb-3 text-xs font-semibold uppercase tracking-[0.22em] text-primary">
+          <p className="mb-3 font-mono text-xs uppercase tracking-[0.18em] text-primary">
             Preguntas frecuentes
           </p>
-          <h2 className="font-heading text-3xl font-extrabold tracking-tight text-foreground sm:text-4xl">
+          <h2 className="font-heading text-3xl font-medium tracking-tight text-foreground sm:text-4xl">
             Dudas normales antes de empezar.
           </h2>
         </div>
@@ -66,7 +66,7 @@ export function Faq() {
                   aria-expanded={isOpen}
                 >
                   <span className="min-w-0">
-                    <span className="block text-[11px] font-bold uppercase tracking-widest text-primary/70">
+                    <span className="block font-mono text-[10px] uppercase tracking-widest text-primary/70">
                       {f.category}
                     </span>
                     <span className="mt-1 block text-[15px] font-semibold leading-snug text-foreground">
@@ -102,7 +102,7 @@ export function Faq() {
             href={CONTACT.whatsappGeneral}
             target="_blank"
             rel="noreferrer"
-            className="inline-flex items-center gap-2 rounded-xl border border-primary/20 bg-primary/8 px-6 py-3 text-sm font-semibold text-primary transition-all hover:border-primary hover:bg-primary hover:text-white"
+            className="inline-flex items-center gap-2 rounded-xl border border-primary/20 bg-primary/8 px-6 py-3 text-sm font-semibold text-primary transition-all hover:border-primary hover:bg-primary hover:text-primary-foreground"
           >
             <MessageCircle className="size-4" />
             Hacer mi pregunta

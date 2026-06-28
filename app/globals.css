@@ -5,7 +5,7 @@
 @custom-variant dark (&:is(.dark *));
 
 @theme inline {
-  --font-heading: var(--font-poppins), var(--font-sans);
+  --font-heading: var(--font-fraunces), var(--font-sans);
   --font-sans: var(--font-inter), 'Inter Fallback';
   --font-mono: var(--font-geist-mono), 'Geist Mono Fallback';
   --color-sidebar-ring: var(--sidebar-ring);
@@ -39,138 +39,119 @@
   --color-card: var(--card);
   --color-foreground: var(--foreground);
   --color-background: var(--background);
-  --radius-sm: calc(var(--radius) * 0.6);
-  --radius-md: calc(var(--radius) * 0.8);
+  --color-olive: var(--olive);
+  --color-olive-foreground: var(--olive-foreground);
+  --color-paper: var(--paper);
+  --radius-sm: calc(var(--radius) * 0.4);
+  --radius-md: calc(var(--radius) * 0.6);
   --radius-lg: var(--radius);
-  --radius-xl: calc(var(--radius) * 1.4);
-  --radius-2xl: calc(var(--radius) * 1.8);
-  --radius-3xl: calc(var(--radius) * 2.2);
-  --radius-4xl: calc(var(--radius) * 2.6);
+  --radius-xl: calc(var(--radius) * 1.2);
+  --radius-2xl: calc(var(--radius) * 1.5);
+  --radius-3xl: calc(var(--radius) * 1.8);
+  --radius-4xl: calc(var(--radius) * 2.2);
 }
 
 /* ─────────────────────────────────────────────────────────────────────────────
-   LIGHT MODE
-   Problema anterior: --foreground en oklch(0.22) ≈ #1e1f2e (negro percibido)
-   solución: azul-teal marino oklch(0.30) — legible, fresco, asociado a salud
+   "Diario de bienestar" — papel crema, verde bosque casi-negro, un solo acento
+   arcilla. Botánico de línea suelta, no terracota+sage+serif-italic genérico.
    ───────────────────────────────────────────────────────────────────────────── */
 :root {
-  /* Backgrounds — blanco con toque verde-salud muy sutil */
-  --background:        oklch(0.985 0.008 160);   /* #f5faf8 aprox — casi blanco, matiz natural */
-  --card:              oklch(1 0 0);              /* blanco puro para tarjetas */
-  --popover:           oklch(1 0 0);
+  --background:         oklch(0.975 0.012 95);   /* #fbf9f4 — crema papel */
+  --paper:               oklch(0.975 0.012 95);
+  --card:                oklch(0.995 0.004 95);
+  --popover:             oklch(0.995 0.004 95);
 
-  /* ✅ FOREGROUND: azul-teal profundo, NO negro
-     oklch(0.30 0.04 220) ≈ #1a3a4a — transmite confianza y salud, nunca negro */
-  --foreground:        oklch(0.30 0.04 220);
-  --card-foreground:   oklch(0.30 0.04 220);
-  --popover-foreground: oklch(0.30 0.04 220);
+  --foreground:          oklch(0.22 0.025 155);  /* #1f2b23 — verde bosque casi negro */
+  --card-foreground:     oklch(0.22 0.025 155);
+  --popover-foreground:  oklch(0.22 0.025 155);
 
-  /* Primary — azul Immunotec (se mantiene, es la identidad de marca) */
-  --primary:           oklch(0.42 0.19 264);
-  --primary-foreground: oklch(0.99 0.005 250);
+  /* Primary: naranja arcilla — único acento cálido, reservado para CTA/marca */
+  --primary:             oklch(0.58 0.16 45);    /* #d4622e aprox */
+  --primary-foreground:  oklch(0.99 0.004 95);
 
-  /* Secondary */
-  --secondary:         oklch(0.94 0.018 175);    /* verde-gris sutil */
-  --secondary-foreground: oklch(0.35 0.05 210);
+  --secondary:           oklch(0.93 0.015 100);
+  --secondary-foreground: oklch(0.30 0.03 150);
 
-  /* Muted — gris-teal medio, no oscuro */
-  --muted:             oklch(0.96 0.012 170);
-  --muted-foreground:  oklch(0.54 0.04 210);     /* era 0.52 → sube a 0.54, hue hacia teal */
+  --muted:               oklch(0.94 0.012 95);
+  --muted-foreground:    oklch(0.48 0.025 140);
 
-  /* Accent */
-  --accent:            oklch(0.93 0.04 175);
-  --accent-foreground: oklch(0.30 0.04 220);
+  --accent:              oklch(0.90 0.025 95);
+  --accent-foreground:   oklch(0.22 0.025 155);
 
-  --destructive:       oklch(0.577 0.245 27.325);
+  --destructive:         oklch(0.577 0.245 27.325);
 
-  /* Borders — verde-gris sutil, no frío */
-  --border:            oklch(0.88 0.025 175);
-  --input:             oklch(0.88 0.025 175);
-  --ring:              oklch(0.42 0.19 264);
+  --border:              oklch(0.87 0.018 95);
+  --input:               oklch(0.87 0.018 95);
+  --ring:                oklch(0.58 0.16 45);
 
-  /* Charts */
-  --chart-1: oklch(0.42 0.19 264);
-  --chart-2: oklch(0.55 0.15 175);
-  --chart-3: oklch(0.65 0.16 155);
-  --chart-4: oklch(0.70 0.13 200);
-  --chart-5: oklch(0.35 0.08 220);
+  /* Olive: verde oliva apagado — SVGs botánicos, credenciales/autoridad */
+  --olive:               oklch(0.52 0.045 135);  /* #7c8b6f aprox */
+  --olive-foreground:    oklch(0.99 0.004 95);
 
-  --radius: 1rem;
+  --chart-1: oklch(0.58 0.16 45);
+  --chart-2: oklch(0.52 0.045 135);
+  --chart-3: oklch(0.40 0.03 150);
+  --chart-4: oklch(0.70 0.07 95);
+  --chart-5: oklch(0.30 0.03 150);
 
-  /* Sidebar */
-  --sidebar:                   oklch(0.985 0.008 160);
-  --sidebar-foreground:        oklch(0.30 0.04 220);
-  --sidebar-primary:           oklch(0.42 0.19 264);
-  --sidebar-primary-foreground: oklch(0.99 0.005 250);
-  --sidebar-accent:            oklch(0.93 0.04 175);
-  --sidebar-accent-foreground: oklch(0.30 0.04 220);
-  --sidebar-border:            oklch(0.88 0.025 175);
-  --sidebar-ring:              oklch(0.42 0.19 264);
+  --radius: 0.7rem;
 
-  /* ─── Bridge para SVGs que usan hsl(var(--primary)) ───────────────────────
-     El bug de la mancha negra ocurría porque --primary es oklch() y hsl()
-     no puede interpolar oklch. La solución es exponer alias en HSL puros. */
-  --primary-hsl:        220 68% 40%;       /* equivale al azul Immunotec */
-  --primary-h:          220;
-  --primary-s:          68%;
-  --primary-l:          40%;
-
-  --teal-soft-hsl:      162 40% 72%;       /* para blobs secundarios */
+  --sidebar:                    oklch(0.975 0.012 95);
+  --sidebar-foreground:         oklch(0.22 0.025 155);
+  --sidebar-primary:            oklch(0.58 0.16 45);
+  --sidebar-primary-foreground: oklch(0.99 0.004 95);
+  --sidebar-accent:             oklch(0.90 0.025 95);
+  --sidebar-accent-foreground:  oklch(0.22 0.025 155);
+  --sidebar-border:             oklch(0.87 0.018 95);
+  --sidebar-ring:               oklch(0.58 0.16 45);
 }
 
-/* ─────────────────────────────────────────────────────────────────────────────
-   DARK MODE
-   El foreground en dark mode no debe volverse blanco puro (#fff = muy agresivo)
-   Usamos un blanco cálido levemente azulado.
-   ───────────────────────────────────────────────────────────────────────────── */
 .dark {
-  --background:        oklch(0.18 0.025 220);    /* azul-teal muy oscuro, NO negro puro */
-  --foreground:        oklch(0.94 0.012 200);    /* blanco cálido azulado, no #fff agresivo */
+  --background:          oklch(0.19 0.02 155);
+  --paper:                oklch(0.19 0.02 155);
+  --foreground:           oklch(0.93 0.012 95);
 
-  --card:              oklch(0.22 0.03 220);
-  --card-foreground:   oklch(0.94 0.012 200);
+  --card:                 oklch(0.23 0.022 155);
+  --card-foreground:      oklch(0.93 0.012 95);
 
-  --popover:           oklch(0.22 0.03 220);
-  --popover-foreground: oklch(0.94 0.012 200);
+  --popover:              oklch(0.23 0.022 155);
+  --popover-foreground:   oklch(0.93 0.012 95);
 
-  --primary:           oklch(0.65 0.16 255);
-  --primary-foreground: oklch(0.16 0.04 264);
+  --primary:              oklch(0.65 0.155 48);
+  --primary-foreground:   oklch(0.17 0.02 155);
 
-  --secondary:         oklch(0.27 0.04 220);
-  --secondary-foreground: oklch(0.94 0.012 200);
+  --secondary:            oklch(0.27 0.025 150);
+  --secondary-foreground: oklch(0.93 0.012 95);
 
-  --muted:             oklch(0.26 0.03 220);
-  --muted-foreground:  oklch(0.68 0.04 210);     /* gris-teal medio, legible sobre dark */
+  --muted:                oklch(0.26 0.022 150);
+  --muted-foreground:     oklch(0.66 0.025 110);
 
-  --accent:            oklch(0.30 0.05 210);
-  --accent-foreground: oklch(0.94 0.012 200);
+  --accent:               oklch(0.30 0.03 145);
+  --accent-foreground:    oklch(0.93 0.012 95);
 
-  --destructive:       oklch(0.704 0.191 22.216);
+  --destructive:          oklch(0.704 0.191 22.216);
 
-  --border:            oklch(1 0 0 / 10%);
-  --input:             oklch(1 0 0 / 13%);
-  --ring:              oklch(0.65 0.16 255);
+  --border:               oklch(1 0 0 / 10%);
+  --input:                oklch(1 0 0 / 13%);
+  --ring:                 oklch(0.65 0.155 48);
 
-  --chart-1: oklch(0.65 0.16 255);
-  --chart-2: oklch(0.60 0.15 175);
-  --chart-3: oklch(0.70 0.16 155);
-  --chart-4: oklch(0.72 0.13 200);
-  --chart-5: oklch(0.80 0.10 255);
+  --olive:                oklch(0.62 0.05 135);
+  --olive-foreground:     oklch(0.17 0.02 155);
 
-  --sidebar:                   oklch(0.20 0.025 220);
-  --sidebar-foreground:        oklch(0.94 0.012 200);
-  --sidebar-primary:           oklch(0.65 0.16 255);
-  --sidebar-primary-foreground: oklch(0.16 0.04 264);
-  --sidebar-accent:            oklch(0.30 0.05 210);
-  --sidebar-accent-foreground: oklch(0.94 0.012 200);
-  --sidebar-border:            oklch(1 0 0 / 10%);
-  --sidebar-ring:              oklch(0.65 0.16 255);
+  --chart-1: oklch(0.65 0.155 48);
+  --chart-2: oklch(0.62 0.05 135);
+  --chart-3: oklch(0.70 0.025 100);
+  --chart-4: oklch(0.55 0.05 135);
+  --chart-5: oklch(0.80 0.015 95);
 
-  --primary-hsl:   220 60% 62%;
-  --primary-h:     220;
-  --primary-s:     60%;
-  --primary-l:     62%;
-  --teal-soft-hsl: 162 35% 65%;
+  --sidebar:                    oklch(0.21 0.02 155);
+  --sidebar-foreground:         oklch(0.93 0.012 95);
+  --sidebar-primary:            oklch(0.65 0.155 48);
+  --sidebar-primary-foreground: oklch(0.17 0.02 155);
+  --sidebar-accent:             oklch(0.30 0.03 145);
+  --sidebar-accent-foreground:  oklch(0.93 0.012 95);
+  --sidebar-border:             oklch(1 0 0 / 10%);
+  --sidebar-ring:               oklch(0.65 0.155 48);
 }
 
 @layer base {
@@ -186,25 +167,21 @@
   }
 }
 
-/* ─── Floating animations ─────────────────────────────────────────────────── */
-@keyframes float-slow {
-  0%, 100% { transform: translateY(0px) rotate(0deg); }
-  50%       { transform: translateY(-14px) rotate(1.5deg); }
+/* ─── Polaroid tilt — fotos reales sobre el fondo botánico ────────────────── */
+.polaroid {
+  background: var(--card);
+  padding: 0.6rem 0.6rem 1.6rem;
+  border-radius: 0.25rem;
+  box-shadow: 0 1px 2px oklch(0.22 0.025 155 / 6%), 0 18px 38px -12px oklch(0.22 0.025 155 / 18%);
 }
-@keyframes float-soft {
-  0%, 100% { transform: translateY(0px); }
-  50%       { transform: translateY(-8px); }
-}
-.animate-float-slow { animation: float-slow 7s ease-in-out infinite; }
-.animate-float-soft { animation: float-soft 5s ease-in-out infinite; }
 
-/* ─── Scroll reveal ───────────────────────────────────────────────────────── */
+/* ─── Reveal on scroll ─────────────────────────────────────────────────────── */
 .reveal {
   opacity: 0;
-  transform: translateY(24px);
+  transform: translateY(22px);
   transition:
-    opacity  0.65s cubic-bezier(0.22, 1, 0.36, 1),
-    transform 0.65s cubic-bezier(0.22, 1, 0.36, 1);
+    opacity  0.6s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 0.6s cubic-bezier(0.22, 1, 0.36, 1);
   will-change: opacity, transform;
 }
 .reveal.is-visible {
@@ -212,7 +189,23 @@
   transform: translateY(0);
 }
 
-/* ─── Shimmer (marquee trust strip) ──────────────────────────────────────── */
+/* ─── Botanical line draw-in — la rama se "dibuja" al cargar el hero ──────── */
+@keyframes draw-line {
+  to { stroke-dashoffset: 0; }
+}
+.botanical-draw path,
+.botanical-draw ellipse {
+  stroke-dasharray: 16 10;
+  stroke-dashoffset: 1400;
+  animation: draw-line 2.6s ease-out forwards;
+}
+
+@keyframes sway {
+  0%, 100% { transform: rotate(0deg); }
+  50%      { transform: rotate(1.2deg); }
+}
+.animate-sway { transform-origin: bottom center; animation: sway 9s ease-in-out infinite; }
+
 @keyframes marquee {
   from { transform: translateX(0); }
   to   { transform: translateX(-50%); }

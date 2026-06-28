@@ -10,8 +10,8 @@ const NAV_LINKS = [
   { label: 'Sobre mí', href: 'consultora' },
   { label: 'Beneficios', href: 'beneficios' },
   { label: 'Historias', href: 'testimonios' },
-  { label: 'Opciones', href: 'productos' },
   { label: 'Preguntas', href: 'faq' },
+  { label: 'Opciones', href: 'productos' },
 ]
 
 const NAV_HEIGHT = 64
@@ -76,14 +76,14 @@ export function Navbar() {
             className="flex items-center gap-3 focus:outline-none"
             aria-label="Ir al inicio"
           >
-            <div className="flex size-8 items-center justify-center rounded-lg bg-foreground text-background">
-              <span className="font-heading text-sm font-extrabold tracking-tight">BJ</span>
+            <div className="flex size-8 items-center justify-center rounded-lg bg-primary text-primary-foreground">
+              <span className="font-heading text-sm font-semibold tracking-tight">BJ</span>
             </div>
             <div className="leading-none text-left">
-              <span className="block font-heading text-[14px] font-extrabold tracking-tight text-foreground">
+              <span className="block font-heading text-[14px] font-semibold tracking-tight text-foreground">
                 {BRAND.name}
               </span>
-              <span className="block text-[9px] font-medium uppercase tracking-[0.18em] text-muted-foreground">
+              <span className="block font-mono text-[9px] uppercase tracking-[0.16em] text-muted-foreground">
                 Bienestar personal
               </span>
             </div>
@@ -126,7 +126,7 @@ export function Navbar() {
               href={CONTACT.whatsappGeneral}
               target="_blank"
               rel="noreferrer"
-              className="hidden items-center gap-2 rounded-lg bg-primary px-4 py-2 text-sm font-semibold text-white shadow-md shadow-primary/20 transition-all hover:scale-[1.02] hover:shadow-lg lg:inline-flex"
+              className="hidden items-center gap-2 rounded-lg bg-primary px-4 py-2 text-sm font-semibold text-primary-foreground shadow-md shadow-primary/20 transition-all hover:scale-[1.02] hover:shadow-lg lg:inline-flex"
             >
               <MessageCircle className="size-3.5" />
               Escríbeme
@@ -172,7 +172,7 @@ export function Navbar() {
               href={CONTACT.whatsappGeneral}
               target="_blank"
               rel="noreferrer"
-              className="mt-4 flex items-center justify-center gap-2 rounded-xl bg-primary py-3.5 text-sm font-bold text-white shadow-md shadow-primary/20"
+              className="mt-4 flex items-center justify-center gap-2 rounded-xl bg-primary py-3.5 text-sm font-bold text-primary-foreground shadow-md shadow-primary/20"
             >
               <MessageCircle className="size-4" />
               Escribirle a Juliana

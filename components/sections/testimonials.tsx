@@ -22,7 +22,7 @@ const TESTIMONIALS = [
     rating: 5,
     text: 'Tengo 58 años y soy diabético. Mi médico me autorizó tomarlo y los resultados en mis niveles de energía y en las defensas han sido notables. Lo recomiendo sin dudarlo.',
     product: 'Immunocal Platinum',
-    colorClass: 'bg-slate-100 text-slate-600 dark:bg-slate-800 dark:text-slate-300',
+    colorClass: 'bg-olive/10 text-olive',
   },
   {
     name: 'Sandra P.',
@@ -40,7 +40,7 @@ const TESTIMONIALS = [
     rating: 5,
     text: 'Mi esposa y yo empezamos juntos. Los dos notamos mejoría en el sueño y en nuestra resistencia. Es un producto serio, con ciencia detrás. Vale cada peso.',
     product: 'Immunocal Platinum',
-    colorClass: 'bg-slate-100 text-slate-600 dark:bg-slate-800 dark:text-slate-300',
+    colorClass: 'bg-olive/10 text-olive',
   },
   {
     name: 'Alejandra T.',
@@ -61,7 +61,6 @@ export function Testimonials() {
   const next = useCallback(() => setActive(a => (a + 1) % TESTIMONIALS.length), [])
   const prev = useCallback(() => setActive(a => (a - 1 + TESTIMONIALS.length) % TESTIMONIALS.length), [])
 
-  // Autoplay
   useEffect(() => {
     if (paused) return
     const id = setInterval(next, 5000)
@@ -72,35 +71,16 @@ export function Testimonials() {
 
   return (
     <section id="testimonios" className="relative overflow-hidden py-24 sm:py-32">
-
-      {/* SVG background sutil */}
-      <svg
-        className="pointer-events-none absolute inset-0 h-full w-full"
-        viewBox="0 0 1440 600"
-        preserveAspectRatio="xMidYMid slice"
-        aria-hidden
-      >
-        <path d="M0,0 C360,32 720,-12 1080,20 C1260,36 1380,10 1440,0 L1440,44 L0,44Z"
-          fill="#2d5fd4" fillOpacity="0.04" />
-        <path d="M0,600 C360,568 720,596 1080,572 C1260,556 1380,580 1440,600 L1440,560 L0,560Z"
-          fill="#3aa87e" fillOpacity="0.04" />
-        <circle cx="120"  cy="100" r="60" fill="#2d5fd4" fillOpacity="0.04" />
-        <circle cx="1340" cy="500" r="80" fill="#3aa87e" fillOpacity="0.04" />
-      </svg>
-
       <div className="relative mx-auto max-w-5xl px-6 sm:px-10">
-
-        {/* Header */}
         <div ref={header} className="mb-16 text-center">
-          <p className="mb-3 text-xs font-semibold uppercase tracking-[0.22em] text-primary">
+          <p className="mb-3 font-mono text-xs uppercase tracking-[0.18em] text-primary">
             Resultados reales
           </p>
-          <h2 className="font-heading text-3xl font-extrabold tracking-tight text-foreground sm:text-4xl">
+          <h2 className="font-heading text-3xl font-medium tracking-tight text-foreground sm:text-4xl">
             Lo que dicen quienes<br />ya lo viven
           </h2>
         </div>
 
-        {/* Slider */}
         <div
           className="relative"
           onMouseEnter={() => setPaused(true)}
@@ -108,19 +88,15 @@ export function Testimonials() {
         >
           <div className="overflow-hidden rounded-3xl border border-border bg-card shadow-xl shadow-black/[0.04]">
             <div className="p-10 sm:p-14">
-
-              {/* Comillas decorativas */}
               <Quote className="mb-6 size-10 text-primary/20" />
 
-              {/* Texto con transición */}
               <blockquote
                 key={active}
-                className="animate-fade-in font-heading text-xl font-semibold leading-relaxed text-foreground sm:text-2xl"
+                className="animate-fade-in font-heading text-xl font-medium leading-relaxed text-foreground sm:text-2xl"
               >
                 "{t.text}"
               </blockquote>
 
-              {/* Autor */}
               <div className="mt-10 flex items-center justify-between gap-4">
                 <div className="flex items-center gap-4">
                   <div className={cn(
@@ -130,13 +106,12 @@ export function Testimonials() {
                     {t.initials}
                   </div>
                   <div>
-                    <p className="font-heading text-sm font-bold text-foreground">{t.name}</p>
+                    <p className="font-heading text-sm font-semibold text-foreground">{t.name}</p>
                     <p className="text-xs text-muted-foreground">{t.city} · {t.product}</p>
                   </div>
                 </div>
 
-                {/* Estrellas */}
-                <div className="flex gap-0.5 text-amber-400">
+                <div className="flex gap-0.5 text-primary">
                   {Array.from({ length: t.rating }).map((_, i) => (
                     <Star key={i} className="size-4 fill-current" />
                   ))}
@@ -144,7 +119,6 @@ export function Testimonials() {
               </div>
             </div>
 
-            {/* Barra de progreso */}
             <div className="h-[3px] w-full bg-border">
               <div
                 key={active}
@@ -156,9 +130,7 @@ export function Testimonials() {
             </div>
           </div>
 
-          {/* Controles */}
           <div className="mt-8 flex items-center justify-between">
-            {/* Dots */}
             <div className="flex gap-2">
               {TESTIMONIALS.map((_, i) => (
                 <button
@@ -173,7 +145,6 @@ export function Testimonials() {
               ))}
             </div>
 
-            {/* Flechas */}
             <div className="flex gap-2">
               <button
                 onClick={() => { prev(); setPaused(true) }}
@@ -194,7 +165,6 @@ export function Testimonials() {
         </div>
       </div>
 
-      {/* Animación de la barra de progreso */}
       <style jsx>{`
         @keyframes progress-bar {
           from { width: 0; }
