@@ -1,6 +1,6 @@
 export const BRAND = {
   name: 'Bienestar con Juliana',
-  tagline: 'Habitos, energia y bienestar real',
+  tagline: 'Hábitos, energía y bienestar real',
   legal: 'Distribuidora independiente de Immunotec',
 }
 
@@ -12,7 +12,7 @@ export function waLink(text: string) {
 
 export const CONTACT = {
   whatsappGeneral: waLink(
-    'Hola Juliana, quiero contarte como me he sentido y saber por donde podria empezar.',
+    'Hola Juliana, quiero contarte cómo me he sentido y saber por dónde podría empezar.',
   ),
   instagram: 'https://www.instagram.com/bienestarconjuliana/',
   facebook: 'https://www.facebook.com/profile.php?id=61590846119909',
@@ -42,26 +42,26 @@ export const PRODUCTS: Product[] = [
     image: '/products/immunocal-regular.png',
     benefits: [
       'Apoya tu rutina de bienestar',
-      'Ayuda a producir glutation',
-      'Simple de integrar al dia a dia',
+      'Ayuda a producir glutatión',
+      'Simple de integrar al día a día',
       'Buen punto de partida para conversar',
     ],
     cta: 'Preguntar si va conmigo',
     waText:
-      'Hola Juliana, vi Immunocal y quiero saber si puede ir conmigo segun lo que estoy buscando.',
+      'Hola Juliana, vi Immunocal y quiero saber si puede ir conmigo según lo que estoy buscando.',
   },
   {
     id: 'platinum',
     name: 'Immunocal Platinum',
-    tagline: 'Objetivos mas especificos',
+    tagline: 'Objetivos más específicos',
     badge: 'Muy consultado',
     accent: 'platinum',
     image: '/products/immunocal-platinum.png',
     benefits: [
-      'Para revisar con mas contexto',
+      'Para revisar con más contexto',
       'Interesa en rutinas exigentes',
-      'Puede acompanarse con seguimiento',
-      'Conviene mirarlo segun edad y habitos',
+      'Puede acompañarse con seguimiento',
+      'Conviene mirarlo según edad y hábitos',
     ],
     cta: 'Preguntar si va conmigo',
     waText:
@@ -70,13 +70,13 @@ export const PRODUCTS: Product[] = [
   {
     id: 'optimizer',
     name: 'Optimizer Rojos y Verdes',
-    tagline: 'Nutricion practica',
+    tagline: 'Nutrición práctica',
     accent: 'green',
     image: '/products/immunocal-optimizer.png',
     benefits: [
-      'Complementa la alimentacion diaria',
-      'Practico para dias ocupados',
-      'Acompana habitos sostenibles',
+      'Complementa la alimentación diaria',
+      'Práctico para días ocupados',
+      'Acompaña hábitos sostenibles',
       'Bueno para revisar junto a tu rutina',
     ],
     cta: 'Preguntar si va conmigo',
@@ -85,19 +85,19 @@ export const PRODUCTS: Product[] = [
   },
   {
     id: 'cafe',
-    name: 'Immunotec Cafe',
+    name: 'Immunotec Café',
     tagline: 'Ritual cotidiano',
     badge: '100% colombiano',
     accent: 'coffee',
     image: '/products/immunotec-cafe.png',
     benefits: [
-      'Cafe soluble colombiano',
-      'Se integra a tu manana',
-      'Un habito simple y agradable',
+      'Café soluble colombiano',
+      'Se integra a tu mañana',
+      'Un hábito simple y agradable',
       'Ideal para conversar como ritual',
     ],
     cta: 'Preguntar si va conmigo',
     waText:
-      'Hola Juliana, vi Immunotec Cafe y quiero saber como podria integrarlo a mi rutina.',
+      'Hola Juliana, vi Immunotec Café y quiero saber cómo podría integrarlo a mi rutina.',
   },
 ]
