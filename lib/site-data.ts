@@ -25,6 +25,7 @@ export type Product = {
   id: string
   name: string
   tagline: string
+  image: string
   badge?: string
   accent: 'blue' | 'platinum' | 'green' | 'coffee'
   benefits: string[]
@@ -37,6 +38,7 @@ export const PRODUCTS: Product[] = [
     id: 'regular',
     name: 'Immunocal',
     tagline: 'Para empezar con intención',
+    image: '/products/immunocal-regular.svg',  // ← .svg
     accent: 'blue',
     benefits: [
       'Apoya tus defensas día a día',
@@ -52,6 +54,7 @@ export const PRODUCTS: Product[] = [
     id: 'platinum',
     name: 'Immunocal Platinum',
     tagline: 'Un paso más profundo',
+    image: '/products/immunocal-platinum.svg', // ← .svg
     badge: 'Muy consultado',
     accent: 'platinum',
     benefits: [
@@ -68,6 +71,7 @@ export const PRODUCTS: Product[] = [
     id: 'optimizer',
     name: 'Optimizer Rojos y Verdes',
     tagline: 'Nutrición fácil de sostener',
+    image: '/products/immunocal-optimizer.svg', // ← .svg
     accent: 'green',
     benefits: [
       'Más de 50 frutas y verduras',
@@ -83,6 +87,7 @@ export const PRODUCTS: Product[] = [
     id: 'cafe',
     name: 'Immunotec Café',
     tagline: 'Tu ritual diario con propósito',
+    image: '/products/immunotec-cafe.svg',      // ← .svg
     badge: '100% colombiano',
     accent: 'coffee',
     benefits: [

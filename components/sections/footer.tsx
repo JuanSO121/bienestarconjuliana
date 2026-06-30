@@ -1,12 +1,11 @@
 import { FacebookIcon, InstagramIcon } from '@/components/brand-icons'
 
 import { BRAND, CONTACT } from '@/lib/site-data'
-import { BotanicalSprig } from '../botanical'
 
 export function Footer() {
   return (
     <footer className="relative overflow-hidden border-t border-border bg-card">
-      <BotanicalSprig className="pointer-events-none absolute -bottom-4 -left-6 h-16 w-48 opacity-60" />
+      
 
       <div className="relative mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8">
         <div className="flex flex-col items-center justify-between gap-8 md:flex-row md:items-start">
@@ -29,9 +28,9 @@ export function Footer() {
               Navegación
             </span>
             {[
-              { label: 'Sobre mí', href: '#consultora' },
-              { label: 'Beneficios', href: '#beneficios' },
-              { label: 'Opciones', href: '#productos' },
+              { label: 'Productos', href: '#productos' },
+              { label: 'Asesoria', href: '#consultora' },
+              { label: 'Dudas', href: '#faq' },
               { label: 'Contacto', href: '#contacto' },
             ].map((l) => (
               <a

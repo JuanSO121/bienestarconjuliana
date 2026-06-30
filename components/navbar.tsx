@@ -6,15 +6,13 @@ import { BRAND, CONTACT } from '@/lib/site-data'
 import { cn } from '@/lib/utils'
 
 const NAV_LINKS = [
-  { label: 'Inicio', href: 'inicio' },
-  { label: 'Sobre mí', href: 'consultora' },
-  { label: 'Beneficios', href: 'beneficios' },
-  { label: 'Historias', href: 'testimonios' },
-  { label: 'Preguntas', href: 'faq' },
-  { label: 'Opciones', href: 'productos' },
+  { label: 'Inicio',    href: 'inicio' },
+  { label: 'Productos', href: 'productos' },
+  { label: 'Asesoría',  href: 'consultora' },
+  { label: 'Dudas',     href: 'faq' },
 ]
 
-const NAV_HEIGHT = 64
+const NAV_HEIGHT = 60
 
 function scrollToSection(id: string) {
   const el = document.getElementById(id)
@@ -24,15 +22,15 @@ function scrollToSection(id: string) {
 }
 
 export function Navbar() {
-  const [open, setOpen] = useState(false)
+  const [open,     setOpen]     = useState(false)
   const [scrolled, setScrolled] = useState(false)
-  const [active, setActive] = useState('inicio')
-  const [dark, setDark] = useState(false)
+  const [active,   setActive]   = useState('inicio')
+  const [dark,     setDark]     = useState(false)
 
   useEffect(() => {
-    const saved = localStorage.getItem('theme')
+    const saved       = localStorage.getItem('theme')
     const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches
-    const isDark = saved === 'dark' || (!saved && prefersDark)
+    const isDark      = saved === 'dark' || (!saved && prefersDark)
     document.documentElement.classList.toggle('dark', isDark)
     setDark(isDark)
   }, [])
@@ -40,7 +38,7 @@ export function Navbar() {
   useEffect(() => {
     const ids = NAV_LINKS.map((l) => l.href)
     const onScroll = () => {
-      setScrolled(window.scrollY > 12)
+      setScrolled(window.scrollY > 16)
       let current = 'inicio'
       for (const id of ids) {
         const el = document.getElementById(id)
@@ -66,76 +64,71 @@ export function Navbar() {
         className={cn(
           'fixed inset-x-0 top-0 z-50 transition-all duration-300',
           scrolled
-            ? 'border-b border-border bg-background/95 shadow-sm shadow-black/[0.04] backdrop-blur-md'
+            ? 'border-b border-border bg-background/92 shadow-sm shadow-black/[0.04] backdrop-blur-xl'
             : 'bg-transparent',
         )}
       >
-        <nav className="mx-auto flex h-16 max-w-7xl items-center justify-between px-5 sm:px-8 lg:px-10">
+        <nav className="mx-auto flex h-[60px] max-w-7xl items-center justify-between px-5 sm:px-8 lg:px-10">
           <button
             onClick={() => scrollToSection('inicio')}
-            className="flex items-center gap-3 focus:outline-none"
+            className="flex items-center gap-2.5 rounded-md focus:outline-none focus-visible:ring-2 focus-visible:ring-primary/30"
             aria-label="Ir al inicio"
           >
-            <div className="flex size-8 items-center justify-center rounded-lg bg-primary text-primary-foreground">
-              <span className="font-heading text-sm font-semibold tracking-tight">BJ</span>
-            </div>
+            <span className="flex size-7 shrink-0 items-center justify-center rounded-full bg-primary text-white">
+              <span className="font-heading text-[10.5px] font-semibold">BJ</span>
+            </span>
             <div className="leading-none text-left">
-              <span className="block font-heading text-[14px] font-semibold tracking-tight text-foreground">
+              <span className="block font-heading text-[13px] font-semibold tracking-tight text-foreground">
                 {BRAND.name}
               </span>
-              <span className="block font-mono text-[9px] uppercase tracking-[0.16em] text-muted-foreground">
-                Bienestar personal
+              <span className="block font-mono text-[8px] uppercase tracking-[0.2em] text-muted-foreground/70">
+                Bienestar · Immunotec
               </span>
             </div>
           </button>
 
-          <ul className="hidden items-center lg:flex">
+          <ul className="hidden items-center gap-0.5 lg:flex">
             {NAV_LINKS.map((l) => (
-              <li key={l.href} className="relative">
+              <li key={l.href}>
                 <button
                   onClick={() => scrollToSection(l.href)}
                   className={cn(
-                    'relative px-4 py-5 text-sm transition-colors duration-200',
+                    'relative rounded-md px-3.5 py-2 text-[13px] font-medium transition-colors duration-200',
                     active === l.href
-                      ? 'font-semibold text-primary'
-                      : 'font-medium text-foreground/60 hover:text-foreground',
+                      ? 'text-foreground'
+                      : 'text-muted-foreground hover:text-foreground/80',
                   )}
                 >
                   {l.label}
-                  <span
-                    className={cn(
-                      'absolute bottom-0 left-4 right-4 h-[2px] origin-left rounded-full bg-primary transition-all duration-300',
-                      active === l.href ? 'scale-x-100 opacity-100' : 'scale-x-0 opacity-0',
-                    )}
-                  />
+                  {active === l.href && (
+                    <span className="absolute inset-x-3.5 bottom-1 h-[1.5px] rounded-full bg-primary" />
+                  )}
                 </button>
               </li>
             ))}
           </ul>
 
-          <div className="flex items-center gap-1.5">
+          <div className="flex items-center gap-1">
             <button
               onClick={toggleDark}
-              aria-label={dark ? 'Activar modo claro' : 'Activar modo oscuro'}
-              className="flex size-9 items-center justify-center rounded-lg text-foreground/50 transition-colors hover:bg-secondary hover:text-foreground"
+              aria-label={dark ? 'Modo claro' : 'Modo oscuro'}
+              className="flex size-8 items-center justify-center rounded-full text-muted-foreground transition-colors hover:bg-secondary hover:text-foreground"
             >
-              {dark ? <Sun className="size-4" /> : <Moon className="size-4" />}
+              {dark ? <Sun className="size-3.5" /> : <Moon className="size-3.5" />}
             </button>
-
             <a
               href={CONTACT.whatsappGeneral}
               target="_blank"
               rel="noreferrer"
-              className="hidden items-center gap-2 rounded-lg bg-primary px-4 py-2 text-sm font-semibold text-primary-foreground shadow-md shadow-primary/20 transition-all hover:scale-[1.02] hover:shadow-lg lg:inline-flex"
+              className="hidden items-center gap-1.5 rounded-full bg-[var(--clay)] px-4 py-2 text-[12.5px] font-semibold text-white shadow-sm shadow-[var(--clay)]/20 transition-all hover:opacity-90 hover:shadow-md lg:inline-flex"
             >
               <MessageCircle className="size-3.5" />
               Escríbeme
             </a>
-
             <button
               onClick={() => setOpen(!open)}
               aria-label={open ? 'Cerrar menú' : 'Abrir menú'}
-              className="flex size-9 items-center justify-center rounded-lg text-foreground/60 transition-colors hover:bg-secondary hover:text-foreground lg:hidden"
+              className="flex size-8 items-center justify-center rounded-full text-muted-foreground transition-colors hover:bg-secondary hover:text-foreground lg:hidden"
             >
               {open ? <X className="size-4" /> : <Menu className="size-4" />}
             </button>
@@ -145,21 +138,20 @@ export function Navbar() {
         <div
           className={cn(
             'overflow-hidden transition-all duration-300 ease-in-out lg:hidden',
-            open ? 'max-h-[400px] border-t border-border bg-background/98 backdrop-blur-md' : 'max-h-0',
+            open
+              ? 'max-h-[380px] border-t border-border bg-background/98 backdrop-blur-xl'
+              : 'max-h-0',
           )}
         >
-          <div className="px-5 pb-6 pt-3">
-            <ul className="flex flex-col">
+          <div className="px-5 pb-6 pt-2">
+            <ul className="flex flex-col divide-y divide-border/50">
               {NAV_LINKS.map((l) => (
                 <li key={l.href}>
                   <button
-                    onClick={() => {
-                      scrollToSection(l.href)
-                      setOpen(false)
-                    }}
+                    onClick={() => { scrollToSection(l.href); setOpen(false) }}
                     className={cn(
-                      'flex w-full items-center justify-between border-b border-border/50 py-3.5 text-sm font-medium transition-colors last:border-0',
-                      active === l.href ? 'font-semibold text-primary' : 'text-foreground/70',
+                      'flex w-full items-center justify-between py-3.5 text-sm font-medium transition-colors',
+                      active === l.href ? 'font-semibold text-primary' : 'text-muted-foreground',
                     )}
                   >
                     {l.label}
@@ -172,7 +164,7 @@ export function Navbar() {
               href={CONTACT.whatsappGeneral}
               target="_blank"
               rel="noreferrer"
-              className="mt-4 flex items-center justify-center gap-2 rounded-xl bg-primary py-3.5 text-sm font-bold text-primary-foreground shadow-md shadow-primary/20"
+              className="mt-4 flex items-center justify-center gap-2 rounded-2xl bg-[var(--clay)] py-3.5 text-sm font-bold text-white"
             >
               <MessageCircle className="size-4" />
               Escribirle a Juliana
@@ -180,8 +172,7 @@ export function Navbar() {
           </div>
         </div>
       </header>
-
-      <div className="h-16" aria-hidden />
+      <div className="h-[60px]" aria-hidden />
     </>
   )
 }
